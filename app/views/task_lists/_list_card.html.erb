@@ -1,27 +1,29 @@
-<div class="card mb-3">
-  <div class="card-body">
-    <div class="d-flex justify-content-between align-items-center">
-      <h5 class="card-title"><%= task_list.name %></h5>
-      <div class="btn-group">
-        <%= link_to edit_task_list_path(task_list), class: "btn btn-sm btn-outline-primary" do %>
+<div class="bg-white rounded-lg shadow-md mb-4">
+  <div class="p-4">
+    <div class="flex justify-between items-center">
+      <h5 class="text-xl font-semibold"><%= task_list.name %></h5>
+      <div class="flex space-x-2">
+        <%= link_to edit_task_list_path(task_list), class: "px-2 py-1 text-sm border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white rounded" do %>
           <i class="fas fa-edit"></i>
         <% end %>
         <%= link_to task_list_path(task_list),
             method: :delete,
             data: { confirm: 'Are you sure?' },
-            class: "btn btn-sm btn-outline-danger" do %>
+            class: "px-2 py-1 text-sm border border-red-500 text-red-500 hover:bg-red-500 hover:text-white rounded" do %>
           <i class="fas fa-trash"></i>
         <% end %>
       </div>
     </div>
-    <p class="card-text text-muted"><%= pluralize(task_list.tasks.count, 'task') %></p>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar"
+    <p class="text-sm text-gray-600 mt-2"><%= pluralize(task_list.tasks.count, 'task') %></p>
+    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+      <div class="bg-blue-600 h-2.5 rounded-full"
+           style="width: <%= task_list.completion_percentage %>%"
+           role="progressbar"
            aria-valuenow="<%= task_list.completion_percentage %>"
            aria-valuemin="0"
            aria-valuemax="100">
-        <%= task_list.completion_percentage %>%
       </div>
     </div>
-  </div>  </div>
+    <div class="text-sm text-gray-600 mt-1"><%= task_list.completion_percentage %>%</div>
+  </div>
 </div>
