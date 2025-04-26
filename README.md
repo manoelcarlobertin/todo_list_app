@@ -1,24 +1,39 @@
-# README
+🚀 Projeto: ToDo List Completa com Rails 8
+🔥 Stack:
+Ruby on Rails 8 (padrão Hotwire + Turbo + Stimulus)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PostgreSQL (banco de dados)
 
-Things you may want to cover:
+TailwindCSS (estilo moderno)
 
-* Ruby version
+Simple Form (formulários rápidos)
 
-* System dependencies
+Devise (autenticação)
 
-* Configuration
+Kaminari (paginação)
 
-* Database creation
+Rspec + FactoryBot + Faker (testes automatizados)
 
-* Database initialization
+dotenv-rails (variáveis de ambiente .env)
 
-* How to run the test suite
+FontAwesome (ícones)
 
-* Services (job queues, cache servers, search engines, etc.)
+Radial Box (tipo checkbox bonito)
 
-* Deployment instructions
+VSCode (editor)
 
-* ...
+GitHub (repositório)
+
+Partials e Helpers (código limpo e reaproveitado)
+
+Sugestões de outras gems:
+
+annotate (comentar models com colunas do banco)
+
+bullet (descobrir queries N+1 no dev)
+
+rubocop-rails (padronizar o código)
+
+🚀 Projeto com descrições mais detalhadas a seguir:
+
+Fiz uma aplicação ruby on rails todo-list, utilizando o ChatGPT, tailwind, postgresql, javascript, no caso ferramentas como o hotwire, stimulus e outra que já vem no Rails 8, para que na mesma página selecionar utilizando uma coleção itens de uma lista de tarefas para fazer, quero botões estilizados inclusive com ícones, quero um logotipo simples, quero que popule meu sistema utilizando seed, quero utilizar o simple-form, quero aprender a trabalhar com variáveis de ambiente para que eu não precise escrever meu username e password no meu projeto ao configurar, usar o kaminari, o devise, e quero que me sugira outras gens, passo a passo de como configurar, instalar e rodar os comandos de criação, de testes automatizados com o Rspec, quero telas amigáveis e intuitivas para usuários da aplicação, quero que utiliza partials para reaproveitamento de código, quero um passo a passo para gerir um repósitório github desse projeto, quero utilizar radial box para selecionar as tarefas e itens feitos, quero cores e aparencia do Windows, quero no futuro poder escalar esse pequeno projeto web, utiliza as boas práticas na programação, sugira gens, configuração e instalação de biblioteca que deixa meu sistema performático, quero em Português do Brasil, comentários e sugestões para resolver bugs e gargalos que aconteçam durante o meu desenvolvimento do código no Vscode, quero que desenha e explica a modelagem das tabelas bem como o fluxo de dados, quero que seja meu professor de programação focado na prática a fim de eu exercitar a lógica, a sintaxe da linguagem Ruby, a adapção do template sugerido, o ajuste dos exemplos de testes automatizados para essa atividade em geral. 
