@@ -68,3 +68,7 @@ end
 gem 'dotenv-rails'
 
 gem "devise", "~> 4.9"
+
+gem "simple_form", "~> 5.3"
+
+gem "kaminari", "~> 1.2"
