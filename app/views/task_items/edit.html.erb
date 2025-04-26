@@ -1,0 +1,12 @@
+<% content_for :title, "Editing task item" %>
+
+<h1>Editing task item</h1>
+
+<%= render "form", task_item: @task_item %>
+
+<br>
+
+<div>
+  <%= link_to "Show this task item", @task_item %> |
+  <%= link_to "Back to task items", task_items_path %>
+</div>
