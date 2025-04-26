@@ -1,4 +1,4 @@
-User.create!(email: "admin@email.com", password: "123456")
+User.create!(email: "admin1@email.com", password: "123456")
 
 5.times do
   list = TaskList.create!(title: Faker::Lorem.word, user: User.first)

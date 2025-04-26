@@ -51,7 +51,6 @@ group :development, :test do
   gem "database_cleaner", "~> 2.0"
   gem "rubocop-rails" # padronizar o código
   gem "rails_best_practices" # boas práticas de código
-  gem "bullet", "~> 6.0" # otimização de consultas descobrir queries N+1 no dev
   gem "pry-rails", "~> 0.3" # console interativo
   gem "pry-byebug", "~> 3.9" # depuração interativa
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
