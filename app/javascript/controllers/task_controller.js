@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="task"
+// Com Stimulus para marcar tarefas:
 export default class extends Controller {
-  connect() {
+  static targets = ["checkbox"]
+
+  toggle(event) {
+    this.element.requestSubmit();
   }
 }

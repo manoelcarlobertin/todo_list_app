@@ -1,70 +1,51 @@
 class TaskListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_task_list, only: %i[ show edit update destroy ]
 
-  # GET /task_lists or /task_lists.json
   def index
-    @task_lists = TaskList.all
+    @task_lists = current_user.task_lists.order(created_at: :desc).page(params[:page])
   end
 
-  # GET /task_lists/1 or /task_lists/1.json
   def show
+    @task_item = @task_list.task_items.build
   end
 
-  # GET /task_lists/new
   def new
-    @task_list = TaskList.new
+    @task_list = current_user.task_lists.build
   end
 
-  # GET /task_lists/1/edit
-  def edit
-  end
+  def edit;end
 
-  # POST /task_lists or /task_lists.json
   def create
-    @task_list = TaskList.new(task_list_params)
+    @task_list = current_user.task_lists.build(task_list_params)
 
-    respond_to do |format|
-      if @task_list.save
-        format.html { redirect_to @task_list, notice: "Task list was successfully created." }
-        format.json { render :show, status: :created, location: @task_list }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task_list.errors, status: :unprocessable_entity }
-      end
+    if @task_list.save
+      redirect_to @task_list, notice: "Lista criada com sucesso."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /task_lists/1 or /task_lists/1.json
   def update
-    respond_to do |format|
-      if @task_list.update(task_list_params)
-        format.html { redirect_to @task_list, notice: "Task list was successfully updated." }
-        format.json { render :show, status: :ok, location: @task_list }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @task_list.errors, status: :unprocessable_entity }
-      end
+    if @task_list.update(task_list_params)
+      redirect_to @task_list, notice: "Lista atualizada com sucesso."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /task_lists/1 or /task_lists/1.json
   def destroy
     @task_list.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to task_lists_path, status: :see_other, notice: "Task list was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to task_lists_path, notice: "Lista removida."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task_list
-      @task_list = TaskList.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def task_list_params
-      params.expect(task_list: [ :title, :user_id ])
-    end
+  def set_task_list
+    @task_list = current_user.task_lists.find(params.expect(:id))
+  end
+
+  def task_list_params
+    params.expect(task_list: [ :title, :user_id ]) # params.require(:task_list).permit(:title, :user_id) MESMA COISA
+  end
 end
