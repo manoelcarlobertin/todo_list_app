@@ -8,6 +8,7 @@ class TaskListsController < ApplicationController
 
   def show
     @task_item = @task_list.task_items.build
+    @task_items = @task_list.task_items.order(created_at: :desc)
   end
 
   def new
@@ -19,7 +20,7 @@ class TaskListsController < ApplicationController
   def create
     @task_list = current_user.task_lists.build(task_list_params)
 
-    if @task_list.save
+    if @task_list.save!
       redirect_to @task_list, notice: "Lista criada com sucesso."
     else
       render :new, status: :unprocessable_entity
