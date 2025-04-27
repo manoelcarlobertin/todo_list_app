@@ -5,6 +5,8 @@ export default class extends Controller {
   static targets = ["checkbox"]
 
   toggle(event) {
-    this.element.requestSubmit();
+    const form = event.target.closest('form') ||
+      document.getElementById(this.element.id.replace('item_', 'form_'))
+      form.requestSubmit()
   }
 }

@@ -1,6 +1,12 @@
-<%= simple_form_for(@task_list) do |f| %>
+<%= simple_form_for [task_list, task_item], html: { class: 'flex space-x-2' },
+                        data: { turbo_frame: "task_items#{task_list.id}" } do |f| %>
+
   <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence
+                        if f.object.errors[:base].present? %>
+
+  <%= f.input :description, placeholder: 'Nova tarefa...' , label: false, input_html: {
+    class: 'flex-1 border rounded-lg p-2' } %>
 
   <div class="form-inputs">
     <%= f.input :title %>
@@ -8,6 +14,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Adicionar' ,
+      class: 'bg-green-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-200 transition' %>
   </div>
 <% end %>
