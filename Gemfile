@@ -47,7 +47,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "faker"
   gem "rspec-rails", "~> 5.0"
-  gem "factory_bot_rails", "~> 6.0"
+  gem "factory_bot_rails", "~> 6.5"
   gem "database_cleaner", "~> 2.0"
   gem "rubocop-rails" # padronizar o código
   gem "rails_best_practices" # boas práticas de código
